@@ -4,16 +4,16 @@
 //Task: B1 always print before A2, and A1 always print before B2. 
 
 void taskOne(std::shared_ptr<Semaphore> taskOneSem,std::shared_ptr<Semaphore> taskTwoSem){
-  std::cout << "A1 Prints Before B2 "<<std::endl;
+  std::cout << "A1"<<std::endl;
   taskOneSem->Signal();
   taskTwoSem->Wait();
-  std::cout << "A2 Prints After B1 "<<std::endl;
+  std::cout << "A2"<<std::endl;
 }
 void taskTwo(std::shared_ptr<Semaphore> taskOneSem,std::shared_ptr<Semaphore> taskTwoSem){
-  std::cout << "B1 Prints Before A2 "<<std::endl;
+  std::cout << "B1"<<std::endl;
   taskTwoSem->Signal();
   taskOneSem->Wait();
-  std::cout << "B2 Prints After A1 "<<std::endl;
+  std::cout << "B2"<<std::endl;
 }
 
 int main(void){

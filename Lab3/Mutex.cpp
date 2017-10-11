@@ -7,7 +7,6 @@ int value = 0;
 void task(std::shared_ptr<Semaphore> theSemaphore){
   std::cout << value << std::endl;
   theSemaphore->Wait();
-  
   value++;
   theSemaphore->Signal();
 }

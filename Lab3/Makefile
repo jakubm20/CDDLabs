@@ -1,3 +1,4 @@
+#Jakub Michalec
 #Used to contain commands to compile projects
 #Equivalent(?) to a project file in VStudio -- only better!
 #See http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/ for info.
@@ -14,7 +15,7 @@ CFILES=Mutex.cpp Semaphore.cpp
 ALL: $(HFILES) $(CFILES)
 	$(CC) -o Mutex $(CFLAGS) $(CFILES)
 
-DEBUG: DEBUGFLAGS = -DDEBUG
+DEBUG: DEBUGFLAGS = -g -O0
 DEBUG: ALL
 
 #this is customary and just deletes all .o files

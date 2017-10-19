@@ -1,8 +1,11 @@
+//Jakub Michalec
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
 
-int value = 0;
+//A Mutual Exclusion Implementation using Semamphores
+
+int value = 1;
 
 void task(std::shared_ptr<Semaphore> theSemaphore){
   std::cout << value << std::endl;

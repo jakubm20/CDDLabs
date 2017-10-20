@@ -4,16 +4,16 @@
 #See http://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/ for info.
 
 CC=g++
-CFLAGS= -std=c++11 -pthread
+CPPFLAGS= -std=c++11 -pthread
 HFILES=Semaphore.h
-CFILES=rendezvous.cpp Semaphore.cpp
+CPPFILES=rendezvous.cpp Semaphore.cpp
 
 #This rule says that each .o file depends on a .cpp file of the same name
 %.o: %.cpp
-	$(CC) -c -o $@ $< $(CFLAGS) $(DEBUGFLAGS)
+	$(CC) -c -o $@ $< $(CPPFLAGS) $(DEBUGFLAGS)
 
-ALL: $(HFILES) $(CFILES)
-	$(CC) -o rendezvous $(CFLAGS) $(CFILES)
+ALL: $(HFILES) $(CPPFILES)
+	$(CC) -o rendezvous $(CPPFLAGS) $(CPPFILES) $(DEBUGFLAGS)
 
 DEBUG: DEBUGFLAGS = -g -O0
 DEBUG: ALL

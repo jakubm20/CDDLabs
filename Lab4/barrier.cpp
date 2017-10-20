@@ -11,26 +11,28 @@ int n = 3; //number of threads
 void task(std::shared_ptr<Semaphore> mutex, std::shared_ptr<Semaphore> barrierA, std::shared_ptr<Semaphore> barrierB){
   mutex->Wait();
   count++;
-  std::cout << count << std::endl; 
+  std::cout << count << std::endl;
+  std::cout << "Thread is at barrier and waiting" << std::endl;
   if(count == n){
-    barrierB->Wait();
-    barrierA->Signal();
+    barrierB->Wait();//lock second barrier
+    barrierA->Signal();//open first barrier
   }
   mutex->Signal();
   
-  barrierA->Wait();
-  barrierA->Signal();
+  barrierA->Wait();//lock first barrier
+  barrierA->Signal();//open first barrier
 
   mutex->Wait();
   count--;
   if(count == 0){
-    barrierA->Wait();
-    barrierB->Signal();
+    std::cout << "Threads finished" << std::endl; 
+    barrierA->Wait();//lock first barrier
+    barrierB->Signal();//open second barrier
   }
   mutex->Signal();
   
-  barrierB->Wait();
-  barrierB->Signal();
+  barrierB->Wait();//lock second barrier
+  barrierB->Signal();//open first barrier
 }
 
 int main(){

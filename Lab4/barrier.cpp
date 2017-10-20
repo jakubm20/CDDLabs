@@ -32,7 +32,7 @@ void task(std::shared_ptr<Semaphore> mutex, std::shared_ptr<Semaphore> barrierA,
   mutex->Signal();
   
   barrierB->Wait();//lock second barrier
-  barrierB->Signal();//open first barrier
+  barrierB->Signal();//open second barrier
 }
 
 int main(){

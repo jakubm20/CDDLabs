@@ -1,4 +1,7 @@
-//Jakub Michalec
+//author: Jakub Michalec
+//date: 20/10/17
+//license: GNU General Public License v3.0
+
 #include "Semaphore.h"
 #include <iostream>
 #include <thread>
